@@ -1,0 +1,15 @@
+{
+    "name": "samark/genfile",
+    "description": "for laravel automate genfile",
+    "type": "library",
+    "require": {
+        "php": "5.4"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Samark Chaisanguan",
+            "email": "samarkchsngn@gmail.com"
+        }
+    ]
+}

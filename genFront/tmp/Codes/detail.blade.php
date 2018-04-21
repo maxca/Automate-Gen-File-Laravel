@@ -1,0 +1,11 @@
+@extends('layout')
+@section('content')
+ {{dump("detail")}}
+ {{dump($data)}}
+@endsection
+@push('extends-scripts')
+  @include('codes.script')
+@endpush
+@push('extends-style')
+  @include('codes.style')
+@endpush

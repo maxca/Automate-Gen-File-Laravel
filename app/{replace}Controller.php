@@ -1,36 +1,42 @@
 <?php
-namespace App\Http\Controllers\Api\{prefix};
+namespace App\Http\Controllers\{replace};
 
-use App\Http\Controllers\Api\{prefix}\ApiBaseController;
-use App\Http\Requests\{replace}Request;
-use App\Repositories\Interfaces\{prefix}\{replace}\{replace}Interface;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\{replace}\{replace}Request;
+use App\Http\Requests\{replace}\{replace}GetRequest;
+use App\Http\Requests\{replace}\{replace}CreateRequest;
+use App\Http\Requests\{replace}\{replace}UpdateRequest;
+use App\Http\Requests\{replace}\{replace}DeleteRequest;
+use App\Repository\{replace}\{replace}Repository;
 
-class {replace}Controller extends ApiBaseController
+class {replace}Controller extends Controller
 {
 
-    protected $interface;
-    protected $request;
+    protected ${replace_sm};
 
-    public function __construct()
+    public function __construct({replace}Repository ${replace_sm})
     {
-        parent::__construct();
-        // $this->brands = $brands;
-        // $this->middleware('api.savelogrequest');
+        $this->{replace_sm} = ${replace_sm};
     }
-    public function index({replace}Interface $interface,{replace}Request $request)
+    public function create{replace}({replace}CreateRequest $request)
     {
-
-        try {
-            $resultData['item'] = $interface->get{replace}();
-
-            if (isset($resultData['item']) and count($resultData['item']) > 0) {
-                return $this->renderJson('200', $resultData, $request->input('transaction_id'), count($resultData['item']));
-            } else {
-                return $this->renderJson('404', $resultData, $request->input('transaction_id'), 0, 'Data not found');
-            }
-        } catch (\Exception $e) {
-            return $this->renderJson('400', '', $request->input('transaction_id'), '', $e->getMessage());
-        }
-
+        $query = $this->{replace_sm}->createData($request->all());
+        return response()->json($query); 
     }
+    public function get{replace}List({replace}GetRequest $request)
+    {
+        $query = $this->{replace_sm}->search($request->all())->getData();
+        return response()->json($query);   
+    }
+    public function delete{replace}({replace}DeleteRequest $request)
+    {   
+        $query = $this->{replace_sm}->delete($request->all());
+        return response()->json($query);
+    }
+    public function update{replace}({replace}UpdateRequest $request)
+    {
+        $query = $this->{replace_sm}->updateData($request->all());
+        return response()->json($query);   
+    }
+
 }

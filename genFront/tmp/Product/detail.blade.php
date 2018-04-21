@@ -1,0 +1,12 @@
+@extends('layout')
+@section('title',$title)
+@section('content')
+ {{dump("detail")}}
+ {{dump($data)}}
+@endsection
+@push('extends-scripts')
+  @include('product.script')
+@endpush
+@push('extends-style')
+  @include('product.style')
+@endpush

@@ -1,0 +1,12 @@
+@extends('layout')
+@section('title',$title)
+@section('content')
+ {{dump("detail")}}
+ {{dump($data)}}
+@endsection
+@push('extends-scripts')
+  @include('productranking.script')
+@endpush
+@push('extends-style')
+  @include('productranking.style')
+@endpush
